@@ -1,10 +1,12 @@
 package com.example.chett.coach.modele;
 
+import java.io.Serializable;
+
 /**
  * Created by chett on 15/11/2016.
  */
 
-public class Profil {
+public class Profil implements Serializable {
 
     // constantes
     private static final Integer minFemme = 15; // maigre si en dessous
