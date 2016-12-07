@@ -5,6 +5,8 @@ import android.content.Context;
 import com.example.chett.coach.modele.Profil;
 import com.example.chett.coach.outils.Serializer;
 
+import java.util.Date;
+
 /**
  * Created by chett on 30/11/2016.
  */
@@ -14,6 +16,7 @@ public final class Controle {
 private static Controle instance = null;
 private static Profil profil ;
 private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mémoriser la sérialisation du profil.
+
     private Controle(){
         super(); //on appelle la classe mere Object
     }
@@ -36,8 +39,8 @@ private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mé
      * @param sexe 1 pour homme, 0 pour femme
      */
     public void creerProfil(int poids,int taille,int age, int sexe,Context context){
-        this.profil=new Profil(poids, taille, age, sexe);
-        Serializer.serialize(nomFic, profil,context);
+        this.profil=new Profil(poids, taille, age, sexe,new Date());
+        //Serializer.serialize(nomFic, profil,context);
     }
 
     /**
@@ -120,5 +123,9 @@ private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mé
     return 0;
     }
 
+    /**
+     * retourne la date
+     * @return
+     */
 
 }
