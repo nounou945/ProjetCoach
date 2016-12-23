@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         rdFemme = (RadioButton) findViewById(R.id.rdFemme) ;
         controle=Controle.getInstance(this); //pq ??
         ecouteCalcul();
-        recupProfil();
+        recupProfil(); //on la commenter car elle n'etais pas encore cree puis decommenter
     }
 
     /**

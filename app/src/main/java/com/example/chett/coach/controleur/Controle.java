@@ -2,6 +2,7 @@ package com.example.chett.coach.controleur;
 
 import android.content.Context;
 
+import com.example.chett.coach.modele.AccesLocal;
 import com.example.chett.coach.modele.Profil;
 import com.example.chett.coach.outils.Serializer;
 
@@ -16,7 +17,7 @@ public final class Controle {
 private static Controle instance = null;
 private static Profil profil ;
 private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mémoriser la sérialisation du profil.
-
+private static AccesLocal  accesLocal;
     private Controle(){
         super(); //on appelle la classe mere Object
     }
@@ -25,7 +26,10 @@ private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mé
 
         if(Controle.instance==null){
             Controle.instance=new Controle();
-            recupSerialize(context);
+            accesLocal=new AccesLocal(context);
+            profil=accesLocal.recupDernier();
+            //accesLocal.recupDernier(profil); // afin de valoriser l'objet profil (au cas où il y aurait un profil à récupérer
+          // recupSerialize(context);
 
         }
         return Controle.instance;
@@ -41,6 +45,7 @@ private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mé
     public void creerProfil(int poids,int taille,int age, int sexe,Context context){
         this.profil=new Profil(poids, taille, age, sexe,new Date());
         //Serializer.serialize(nomFic, profil,context);
+        accesLocal.ajoutProfil(profil); //d'ajouter le nouveau profil dans la base locale
     }
 
     /**

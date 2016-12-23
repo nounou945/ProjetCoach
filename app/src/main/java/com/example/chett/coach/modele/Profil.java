@@ -1,6 +1,7 @@
 package com.example.chett.coach.modele;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by chett on 15/11/2016.
@@ -19,15 +20,17 @@ public class Profil implements Serializable {
     private int age;
     private int sexe;
     private float img;
-    private String message;//rajout ?
+    private String message;//rajout
+    private Date dateMesure ;
 
-    public Profil(int poids, int taille, int age, int sexe) {
+    public Profil(int poids, int taille, int age, int sexe, Date dateMesure) {
         this.poids = poids;
         this.taille = taille;
         this.age = age;
         this.sexe = sexe;
         calculIMG();
         resultIMG();
+        this.dateMesure=dateMesure;
     }
 
     public int getPoids() {
@@ -85,5 +88,9 @@ public class Profil implements Serializable {
         }
 
 
+    }
+
+    public Date getDateMesure() {
+        return dateMesure;
     }
 }
