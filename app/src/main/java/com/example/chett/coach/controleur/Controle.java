@@ -2,9 +2,13 @@ package com.example.chett.coach.controleur;
 
 import android.content.Context;
 
+import com.example.chett.coach.modele.AccesDistant;
 import com.example.chett.coach.modele.AccesLocal;
 import com.example.chett.coach.modele.Profil;
 import com.example.chett.coach.outils.Serializer;
+import com.example.chett.coach.vue.MainActivity;
+
+import org.json.JSONArray;
 
 import java.util.Date;
 
@@ -17,7 +21,9 @@ public final class Controle {
 private static Controle instance = null;
 private static Profil profil ;
 private static String nomFic ="saveprofil"; // nom du fichier binaire qui va mémoriser la sérialisation du profil.
-private static AccesLocal  accesLocal;
+//private static AccesLocal  accesLocal;
+private static AccesDistant accesDistant;
+private static Context context;
     private Controle(){
         super(); //on appelle la classe mere Object
     }
@@ -25,10 +31,14 @@ private static AccesLocal  accesLocal;
     public final static Controle getInstance(Context context){
 
         if(Controle.instance==null){
+            Controle.context = context;
             Controle.instance=new Controle();
-            accesLocal=new AccesLocal(context);
-            profil=accesLocal.recupDernier();
-            //accesLocal.recupDernier(profil); // afin de valoriser l'objet profil (au cas où il y aurait un profil à récupérer
+            //accesLocal=new AccesLocal(context);
+            accesDistant = new AccesDistant();
+            accesDistant.envoi("dernier", new JSONArray());
+
+            //profil=accesLocal.recupDernier();// afin de valoriser l'objet profil (au cas où il y aurait un profil à récupérer
+
           // recupSerialize(context);
 
         }
@@ -45,7 +55,8 @@ private static AccesLocal  accesLocal;
     public void creerProfil(int poids,int taille,int age, int sexe,Context context){
         this.profil=new Profil(poids, taille, age, sexe,new Date());
         //Serializer.serialize(nomFic, profil,context);
-        accesLocal.ajoutProfil(profil); //d'ajouter le nouveau profil dans la base locale
+        //accesLocal.ajoutProfil(profil); //d'ajouter le nouveau profil dans la base locale
+        accesDistant.envoi("enreg", profil.convertToJSONArray());
     }
 
     /**
@@ -132,5 +143,11 @@ private static AccesLocal  accesLocal;
      * retourne la date
      * @return
      */
+
+public void setProfil(Profil profil){
+    this.profil=profil;
+    ((MainActivity)context).recupProfil();
+
+}
 
 }

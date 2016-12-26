@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         rdFemme = (RadioButton) findViewById(R.id.rdFemme) ;
         controle=Controle.getInstance(this); //pq ??
         ecouteCalcul();
-        recupProfil(); //on la commenter car elle n'etais pas encore cree puis decommenter
+        //recupProfil(); //on la commenter car elle n'etais pas encore cree puis decommenter
     }
 
     /**
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * recupere les donner du profil
      */
-    private void recupProfil(){
+    public void recupProfil(){
      if(controle.getTaille()!=0){
          txtTaille.setText(""+controle.getTaille());
         }
