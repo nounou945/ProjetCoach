@@ -11,159 +11,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.chett.coach.vue.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon IMG"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:layout_marginTop="27dp" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1">
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/normal"
+        android:id="@+id/imgmonImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp" />
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal">
+    <TextView
+        android:text="Mon historique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgmonImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
 
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/grpRadioSexe ">
-
-                    <RadioButton
-                        android:text="Homme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rdHomme "
-                        android:layout_weight="1"
-                        android:checked="true" />
-
-                    <RadioButton
-                        android:text="Femme"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/rdFemme "
-                        android:layout_weight="1" />
-
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal">
-
-                    <TextView
-                        android:text="Poids :"
-                        android:layout_width="66dp"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/txtPoids"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:weightSum="1">
-
-                    <TextView
-                        android:text="Taille :"
-                        android:layout_width="62dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView2" />
-
-                    <EditText
-                        android:layout_width="79dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/txtTaille "
-                        android:layout_weight="0.70" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal">
-
-                    <TextView
-                        android:text="Age :"
-                        android:layout_width="51dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView3" />
-
-                    <EditText
-                        android:layout_width="93dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:ems="10"
-                        android:id="@+id/txtAge " />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="84dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_vertical|center_horizontal">
-
-            <Button
-                android:text="Calculer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnCalc "
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:gravity="center_vertical|center_horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/normal"
-                android:id="@+id/imgSmiley "
-                android:layout_weight="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/lblIMG "
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
-
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/historique"
+        android:id="@+id/imgHistorique"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imgmonImg"
+        android:layout_alignStart="@+id/imgmonImg" />
 </RelativeLayout>

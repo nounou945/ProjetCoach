@@ -3,10 +3,9 @@ package com.example.chett.coach.controleur;
 import android.content.Context;
 
 import com.example.chett.coach.modele.AccesDistant;
-import com.example.chett.coach.modele.AccesLocal;
 import com.example.chett.coach.modele.Profil;
 import com.example.chett.coach.outils.Serializer;
-import com.example.chett.coach.vue.MainActivity;
+import com.example.chett.coach.vue.CalculActivity;
 
 import org.json.JSONArray;
 
@@ -146,7 +145,7 @@ private static Context context;
 
 public void setProfil(Profil profil){
     this.profil=profil;
-    ((MainActivity)context).recupProfil();
+    ((CalculActivity)context).recupProfil();
 
 }
 
