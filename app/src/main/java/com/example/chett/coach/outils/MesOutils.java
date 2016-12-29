@@ -16,8 +16,8 @@ public abstract class MesOutils  {
 
     public  static Date convertStringToDate(String unedate){
     Log.d("avant lappli de la meth","************"+unedate);
-    //String expectedPattern = "EEE MMM dd hh:mm:ss 'GMT' yyyy";
-    String expectedPattern = "dd/MM/yy HH:mm:ss";
+    String expectedPattern = "EEE MMM dd hh:mm:ss 'GMT' yyyy";
+    //String expectedPattern = "dd/MM/yy HH:mm:ss";
     SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
     try {
         Date date = formatter.parse(unedate);
@@ -34,6 +34,11 @@ public abstract class MesOutils  {
     public static String convertDateToString(Date uneDate){
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
         return date.format(uneDate);
+    }
+
+    public static String format2Deciman(Float nbfloat){
+
+        return String.format("%.01f", nbfloat);
     }
 
 }

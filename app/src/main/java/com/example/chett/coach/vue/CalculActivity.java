@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.chett.coach.R;
 import com.example.chett.coach.controleur.Controle;
+import com.example.chett.coach.outils.MesOutils;
 
 import static android.graphics.Color.GREEN;
 import static android.graphics.Color.RED;
@@ -126,13 +127,13 @@ public class CalculActivity extends AppCompatActivity {
                 }
             }
         }
-        lblIMG.setText("Votre IMG est de  : "+monImg+". "+monMessage);
+        lblIMG.setText("Votre IMG est de  : "+ MesOutils.format2Deciman(monImg) +". "+monMessage);
     }
 
     /**
      * recupere les donner du profil
      */
-    public void recupProfil(){
+    /*public void recupProfil(){
      if(controle.getTaille()!=0){
          txtTaille.setText(""+controle.getTaille());
         }
@@ -150,7 +151,7 @@ public class CalculActivity extends AppCompatActivity {
     }
        // findViewById(R.id.btnCalc).performClick();
 
-    }
+    }*/
 
 
    public void creerAccueil(){
@@ -158,10 +159,10 @@ public class CalculActivity extends AppCompatActivity {
        ecouteAccueil(imgAccueil,MainActivity.class);
    }
     public void ecouteAccueil(ImageButton image,final Class classe){
-        imgAccueil.setOnClickListener
+        image.setOnClickListener
                 (new ImageButton.OnClickListener() {
                     public void onClick(View v) {
-                        Intent intent = new Intent(CalculActivity.this,MainActivity.class);
+                        Intent intent = new Intent(CalculActivity.this,classe);
                         startActivity(intent);
 
 

@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -41,16 +42,32 @@ public AccesDistant(){
             if(message[0].equals("enreg")){
                 Log.d("*************","Enreg" + message);
             }
-        if(message[0].equals("dernier")){
+            if(message[0].equals("supp")){
+                Log.d("*************","Supp" + message);
+            }
+        if(message[0].equals("tous")){
             try{
-                JSONObject info= new JSONObject(message[1]);
+                //JSONObject info= new JSONObject(message[1]);
+                JSONArray tab= new JSONArray(message[1]);
+                ArrayList listProf=new ArrayList<Profil>();
+                for(int i=0;i<tab.length();i++ ){
+                JSONObject info=(JSONObject)(tab.get(i));
                 Integer poids=info.getInt("poids");
                 Integer taille=info.getInt("taille");
                 Integer age=info.getInt("age");
                 Integer sexe=info.getInt("sexe");
                 Date date= MesOutils.convertStringToDate(info.getString("datemesure"));
-                controle.setProfil(new Profil(poids,taille,age,sexe,date));
-            } catch (JSONException e) {
+                listProf.add(new Profil(poids,taille,age,sexe,date));
+                }
+                controle.setLesProfils(listProf);
+
+
+                //controle.setProfil(new Profil(poids,taille,age,sexe,date));
+
+            }
+
+
+            catch (JSONException e) {
                 e.printStackTrace();
 
 

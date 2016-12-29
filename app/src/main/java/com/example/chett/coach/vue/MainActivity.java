@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         imgmonImg = (ImageButton) findViewById(R.id.imgmonImg) ;
         imgHistorique=(ImageButton) findViewById((R.id.imgHistorique));
         ecouteMenu(imgmonImg,CalculActivity.class);
-        ecouteMenu(imgHistorique,MainActivity.class );
+        ecouteMenu(imgHistorique,HistoActivity.class );
 
 
     }
